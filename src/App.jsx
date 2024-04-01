@@ -31,22 +31,24 @@ const handleToggleTodo = id => {
   return (
 
     <>
-      <div className='d-flex align-items-center justify-content-center' >
-        <div style={{width:"800px",height:"400px",border:"solid green 5px"}} >
-          <h1>My ToDo List</h1>
+      <div className='d-flex  justify-content-center align-items-center'style={{marginTop:"100px"}} >
+        <div style={{width:"550px",height:"auto",border:"solid green 5px"}} >
+          <h1 style={{textAlign:'center'}} className='mt-5'>My ToDo List</h1>
           <div className='d-flex justify-Content- between'>
-            <input type="text" onChange={e => setText(e.target.value)}   placeholder='Add Todo...'/>
-            <button onClick={handleAddTodo} className='btn btn-primary' >Submitt</button>
+            <input  className='ms-3 mt-3 form-control ' type="text" onChange={e => setText(e.target.value)}   placeholder='Add Todo...'/>
+            <button  onClick={handleAddTodo} className='btn btn-info mt-3 ms-1 me-3' >Submitt</button>
           </div>
           <div className='d-flex justify-content-between mt-5'>
             <ul >
     
                {todos.map(todo=>(
-                <li style={{textDecoration:'none'}} key={todo.id}>
-                  <input type="checkbox" checked={todo.completed} onChange={() => handleToggleTodo(todo.id)} />
-                   <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }} >{todo.text}</span>
-                <button onClick={() => handleDeleteTodo(todo.id)} style={{marginLeft:'500px'}} className='btn btn-warning'>Delete</button>
-               </li>
+                <div className='d-flex justify-content-between align-items-between'>
+                  <li style={{listStyle:'none'}} key={todo.id}>
+                    <input type="checkbox" checked={todo.completed} onChange={() => handleToggleTodo(todo.id)} />
+                     <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }} >{todo.text}</span>
+                  <button onClick={() => handleDeleteTodo(todo.id)}  className='btn btn-primary mb-3'style={{marginLeft:"300px"}}>Delete</button>
+                 </li>
+                </div>
             ))}
                 </ul>
           </div>
